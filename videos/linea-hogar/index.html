@@ -1,0 +1,91 @@
+<!doctype html>
+<html
+  lang="es"
+  data-composition-variables='[
+    {"id":"color-ground","type":"color","label":"Fondo","default":"#C9CEC0"},
+    {"id":"color-ink","type":"color","label":"Tinta","default":"#1C1C1A"},
+    {"id":"color-accent","type":"color","label":"Acento (luz)","default":"#FFB31A"},
+    {"id":"font-display","type":"string","label":"Fuente","default":"Outfit"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      :root {
+        --color-ground: #c9cec0;
+        --color-ink: #1c1c1a;
+        --color-accent: #ffb31a;
+        --font-display: "Outfit";
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--color-ground);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      #stage,
+      #titles {
+        position: absolute;
+        inset: 0;
+      }
+      #stage {
+        z-index: 1;
+      }
+      #titles {
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="15"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div
+        id="stage"
+        class="clip"
+        data-composition-id="stage"
+        data-composition-src="compositions/stage.html"
+        data-start="0"
+        data-duration="15"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+      <div
+        id="titles"
+        class="clip"
+        data-composition-id="titles"
+        data-composition-src="compositions/titles.html"
+        data-start="0"
+        data-duration="15"
+        data-track-index="2"
+        data-track-kind="graphics"
+        data-width="1920"
+        data-height="1080"
+      ></div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
