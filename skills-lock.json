@@ -74,6 +74,13 @@
       "computedHash": "0e56cc00ab154fe34524e218232a21afbd5400a3096a1a3b4b37de75fd6861a5",
       "installMode": "copy"
     },
+    "instagram-marketing": {
+      "source": "sergebulaev/instagram-skills",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "9afcf986d796bf35ceeea57ba94b864d7cde3527fc077b1d52ff0b53518b5433",
+      "installMode": "copy"
+    },
     "logo-design": {
       "source": "kaankiziltug/logo-design-skill",
       "sourceType": "github",
