@@ -187,10 +187,10 @@ def rounded(pts, rad=0.006, seg=3):
             out.append(((1 - t) ** 2) * a + 2 * (1 - t) * t * p1 + (t ** 2) * b)
     return [(p.x, p.y) for p in out]
 
-def plate(name, outline, col, mat, holes=(), plane='XZ', offset=0.0, thick=0.004, bev=0.0, corner=0.006, hole_seg=10, corner_seg=2):
+def plate(name, outline, col, mat, holes=(), plane='XZ', offset=0.0, thick=0.004, bev=0.0, corner=0.006, hole_seg=10, corner_seg=2, bev_res=0):
     """Placa recortada con agujeros y bordes biselados. outline/holes en coords del plano."""
     cu = bpy.data.curves.new(name, 'CURVE'); cu.dimensions = '2D'; cu.fill_mode = 'BOTH'
-    cu.extrude = max(thick / 2 - bev, 0.0003); cu.bevel_depth = bev; cu.bevel_resolution = 0 if bev else 0
+    cu.extrude = max(thick / 2 - bev, 0.0003); cu.bevel_depth = bev; cu.bevel_resolution = bev_res
     def add(pts):
         sp = cu.splines.new('POLY'); sp.points.add(len(pts) - 1)
         for i, (a, b) in enumerate(pts): sp.points[i].co = (a, b, 0, 1)
